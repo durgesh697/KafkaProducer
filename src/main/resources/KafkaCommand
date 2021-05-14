@@ -1,0 +1,77 @@
+3.1. Start Zookeeper
+To start zookeeper, we need to run zookeeper-server-start.bat script and pass zookeeper configuration file path.
+
+start-zookeeper.bat
+cd E:\devsetup\bigdata\kafka2.5
+start cmd /k bin\windows\zookeeper-server-start.bat config\zookeeper.properties
+
+
+3.2. Start Kafka
+To start Kafka, we need to run kafka-server-start.bat script and pass broker configuration file path.
+
+start-kafka.bat
+cd E:\devsetup\bigdata\kafka2.5
+start cmd /k bin\windows\kafka-server-start.bat config\server.properties
+
+
+3.3. Shutdown Kafka
+To stop Kafka, we need to run kafka-server-stop.bat script.
+
+stop-kafka.bat
+cd E:\devsetup\bigdata\kafka2.5
+start cmd /k bin\windows\kafka-server-stop.bat
+
+
+3.4. Shutdown Zookeeper
+To stop Zookeeper, we need to run zookeeper-server-stop.bat script.
+
+stop-zookeeper.bat
+cd E:\devsetup\bigdata\kafka2.5
+start cmd /k bin\windows\zookeeper-server-stop.bat
+===============================================+++++++++++++++++++++++++++++++
+
+create kafka topics
+
+D:\Learning\kafka_2.12-2.5.0>bin\windows\kafka-topics.bat --create \ --zookeeper localhost:2181 \ --replication-factor 1 \ --partitions 3 \ --topic Kafka_Micro
+
+
+Start consumer
+D:\Learning\kafka_2.12-2.5.0>bin\windows\kafka-console-consumer.bat -- bootstrap-server localhost:9092 --from-beginning --topic Kafka_Micro --partition 0
+====================================================================================
+----------------------------------------------------------------------------------------------------------
+Kafka Topic CLI command
+
+Create Kafka Topic
+kafka-topic –zookeeper localhost:2181 –topic mytopic –create –partitions 3 –replication-factor 1
+--------------------------------------------------------------------------------------------------------
+
+Describe Topic
+
+kafka-topic –zookeeper localhost:2181 –topic mytopic –describe
+------------------------------------------------------------------------------------------------------------
+
+List all topics
+
+kafka-topic –zookeeper localhost:2181 –list
+
+----------------------------------------------------------------------------------------------------------
+
+Delete topic
+
+kafka-topic –zookeeper localhost:2181 –topic mytopic –delete
+
+
+----------------------------------------------------------------------------------------------------------
+Kafka Consume Topic Command
+
+kafka-console-consumer.bat –bootstrap-server localhost:9092 –topic first.
+
+
+----------------------------------------------------------------------------------------------------------
+
+Kafka Produce Topic Command
+
+kafka-console-producer.bat –broker-list localhost:9092 –topic first
+
+
+----------------------------------------------------------------------------------------------------------
